@@ -5,8 +5,8 @@ from kalmanfilter import KalmanFilter
 
 class ShapeTracker:
     def __init__(self):
-        self.tracked_objects = []  # List of tracked objects
-        self.miss_threshold = 5  # Frames to keep undetected objects
+        self.tracked_objects = []  #tracked objects
+        self.miss_threshold = 5  # Frames to keep undetected objects(if misses more than 5 deletes)
 
     def detect_shapes(self, frame):
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)  # Convert to grayscale
@@ -16,10 +16,10 @@ class ShapeTracker:
         detected_shapes = []
         for cnt in contours:
             area = cv2.contourArea(cnt)  # Calculate contour area
-            if area < 500:  # Filter small contours
+            if area < 500:  # Filter small contours (reduce noise)
                 continue
 
-            shape = self._classify_shape(cnt)  # Identify shape type
+            shape = self._classify_shape(cnt)  # Identify shape
             center = self._get_contour_center(cnt)  # Calculate center
             detected_shapes.append({'center': center, 'contour': cnt, 'type': shape})
 
@@ -40,7 +40,7 @@ class ShapeTracker:
 
     def _get_contour_center(self, contour):
         M = cv2.moments(contour)  # Calculate moments
-        if M["m00"] == 0: return (0, 0)  # Prevent division by zero
+        if M["m00"] == 0: return (0, 0)  # division by zero problem
         return (int(M["m10"] / M["m00"]), int(M["m01"] / M["m00"]))  # Calculate centroid
 
     def update_tracking(self, detected_shapes):

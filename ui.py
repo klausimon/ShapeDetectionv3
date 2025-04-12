@@ -25,10 +25,10 @@ class VideoGUI:
         control_frame.pack(pady=10)
 
         self.open_btn = tk.Button(control_frame, text="Open Video", command=self.open_video, width=15)
-        self.open_btn.pack(side=tk.LEFT, padx=5)  # Add open button
+        self.open_btn.pack(side=tk.LEFT, padx=5)  #open button
 
         self.stop_btn = tk.Button(control_frame, text="Stop", command=self.stop_video, width=15, state=tk.DISABLED)
-        self.stop_btn.pack(side=tk.LEFT, padx=5)  # Add stop button
+        self.stop_btn.pack(side=tk.LEFT, padx=5)  #stop button
 
         # Video display
         self.video_canvas = tk.Canvas(self.root, bg='black')  # Canvas for video
