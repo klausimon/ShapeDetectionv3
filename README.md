@@ -8,12 +8,13 @@ A Python project that detects and tracks geometric shapes (circles, triangles, s
 - Shape detection (triangle/square/rectangle/circle)
 
 ## Installation
-- pip install opencv-python numpy Pillow
+- run installer.bat as admin or copy inside content into console
 
 ### Prerequisites
 - Python 3.6+
+- pip
 ### Limitations
 - kalman filter only assumes linear motion
 
  ### How to Use
-- python run.py
+- run start.bat file or write "python run.py" to the command prompt
