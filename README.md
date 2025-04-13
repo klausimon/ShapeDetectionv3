@@ -8,6 +8,7 @@ A Python project that detects and tracks geometric shapes (circles, triangles, s
 - Shape detection (triangle/square/rectangle/circle)
 
 ## Installation
+- paste "pip install opencv-python numpy Pillow" into a command prompt
 - run installer.bat as admin or copy inside content into console
 
 ### Prerequisites
